@@ -7,3 +7,5 @@ export async function GET() {
     headers: { 'Content-Type': 'application/json' },
   });
 }
+
+console.log("⏰ Cron job executed at:", new Date().toISOString());
