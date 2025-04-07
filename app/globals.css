@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
+/* Theme color variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -19,8 +17,44 @@
   }
 }
 
+/* 🌸 Morphing gradient animated background */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #ffd1dc, #ffe4e6, #fbcfe8, #e0f2fe);
+  background-size: 400% 400%;
+  animation: gradientMorph 15s ease infinite;
+  font-family: var(--font-sans);
+}
+
+@keyframes gradientMorph {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ✨ Optional glitter overlay (can be used on specific elements) */
+.bg-glitter {
+  background-image: url("https://www.transparenttextures.com/patterns/glitter.png");
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+}
+
+/* ✨ Gentle sparkle shimmer */
+@keyframes glitterShine {
+  0% { background-position: 0 0; }
+  50% { background-position: 50px 50px; }
+  100% { background-position: 0 0; }
+}
+
+.animate-glitter {
+  animation: glitterShine 12s infinite linear;
 }
