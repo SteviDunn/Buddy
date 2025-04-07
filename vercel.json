@@ -1,9 +1,0 @@
-{
-    "cron": [
-      {
-        "path": "/api/sync-events",
-        "schedule": "@every 6h"
-      }
-    ]
-  }
-  
