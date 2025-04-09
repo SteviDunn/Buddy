@@ -13,11 +13,10 @@ export default function Home() {
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    fetch("/events.json")
+    fetch("/api/sync-events")
       .then((res) => res.json())
-      .then(setEvents)
-      .catch(console.error);
-  }, []);
+      .then((data) => setEvents(data.events));
+  }, []);  
 
   return (
     <main className="relative z-10 p-6 max-w-6xl mx-auto">
