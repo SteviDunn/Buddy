@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
+import BuddyForm from "./components/BuddyForm"; // ✅ import your form component
 
 type Event = {
   title: string;
@@ -11,12 +12,13 @@ type Event = {
 
 export default function Home() {
   const [events, setEvents] = useState<Event[]>([]);
+  const [openFormIndex, setOpenFormIndex] = useState<number | null>(null); // ✅ track which form is open
 
   useEffect(() => {
     fetch("/api/sync-events")
       .then((res) => res.json())
       .then((data) => setEvents(data.events));
-  }, []);  
+  }, []);
 
   return (
     <main className="relative z-10 p-6 max-w-6xl mx-auto">
@@ -58,11 +60,20 @@ export default function Home() {
                   </a>
                   <button
                     className="bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-600"
-                    onClick={() => alert("Buddy form coming soon!")}
+                    onClick={() =>
+                      setOpenFormIndex(index === openFormIndex ? null : index)
+                    }
                   >
-                    Find a Buddy
+                    {openFormIndex === index ? "Hide Buddy Form" : "Find a Buddy"}
                   </button>
                 </div>
+
+                {/* ✅ Conditionally show the form */}
+                {openFormIndex === index && (
+                  <div className="mt-4">
+                    <BuddyForm eventTitle={event.title} />
+                  </div>
+                )}
               </div>
             </div>
           ))}
