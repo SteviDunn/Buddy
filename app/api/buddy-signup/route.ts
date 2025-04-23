@@ -1,8 +1,25 @@
 import { supabase } from '@/lib/supabaseClient';
+import { Resend } from 'resend';
+
 
 export async function POST(req: Request) {
   const body = await req.json();
   const { name, contact, matchType, eventTitle } = body;
+
+  // step 0: check for existing signup for the same event and contact
+  const { data: existingUser } = await supabase
+    .from('buddy_signups')
+    .select('id')
+    .eq('contact', contact)
+    .eq('event_title', eventTitle)
+    .maybeSingle(); // returns null i fnot found
+
+  if (existingUser) {
+    return new Response(JSON.stringify({
+      success: false, 
+      error: 'You have already signed up for this event'
+    }), { status: 400});
+  }
 
   // Step 1: Insert new signup
   const { data: newUser, error: insertError } = await supabase
@@ -69,6 +86,39 @@ export async function POST(req: Request) {
     console.log('🎉 Matched users:', currentUser.name, '<->', buddy.name);
 
     // TODO: send warm intro email to both users
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    try{
+      await resend.emails.send({
+        from: 'Her Buddy <onboarding@resend.dev>',
+        to: [currentUser.contact, buddy.contact],
+        subject: `You're matched for ${eventTitle}!`,
+        html:`
+          <p>Hi ${currentUser.name} and ${buddy.name}!</p>, 
+          <p> You've been matched for ${eventTitle}! </p>,
+          <p> Feel free to reply to this thread to introduce yourselves and coordinate!</p>
+          <p> Enjoy the event! <br> -Her Buddy Team  💜 </p>
+        `,
+      });
+
+      //mark intro_sent_at timestamp
+      await supabase
+        .from('buddy_signups')
+        .update({ intro_sent_at: new Date().toISOString() })
+        .eq('id', currentUser.id);
+
+      await supabase
+        .from('buddy_signups')
+        .update({ intro_sent_at: new Date().toISOString() })
+        .eq('id', buddy.id);
+
+      console.log('Intro Email sent to both buddies.')
+
+    } catch (error) {
+      console.error(' Error sending intro emails:', error);
+    }
+
+
 
     return new Response(JSON.stringify({ success: true, matched: true }), {
       headers: { 'Content-Type': 'application/json' },
