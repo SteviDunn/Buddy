@@ -22,9 +22,20 @@ export default function Home() {
 
   return (
     <main className="relative z-10 p-6 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4 text-white drop-shadow-lg">
-        SF Tech Events
+      <div className="flex justify-between items-center mb-4">
+      <h1 className="text-4xl font-bold text-white drop-shadow-lg">
+      SF Tech Events
       </h1>
+      <a
+      href="/matches"
+      className="text-2xl font-bold text-white drop-shadow-lg"
+      >
+      See matches made
+      </a>
+      </div>
+
+
+
       {events.length === 0 ? (
         <p className="text-white">Loading events...</p>
       ) : (
@@ -54,18 +65,19 @@ export default function Home() {
                     href={event.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-blue-600 underline"
+                    className="text-pink-400 underline"
                   >
                     View on Luma
                   </a>
                   <button
-                    className="bg-pink-500 text-white px-3 py-1 rounded hover:bg-pink-600"
-                    onClick={() =>
+                  className="bg-pink-400 text-white font-semibold text-base px-4 py-2 rounded shadow-sm hover:bg-pink-300 transition duration-200"
+                  onClick={() =>
                       setOpenFormIndex(index === openFormIndex ? null : index)
                     }
                   >
                     {openFormIndex === index ? "Hide Buddy Form" : "Find a Buddy"}
                   </button>
+
                 </div>
 
                 {/* ✅ Conditionally show the form */}
