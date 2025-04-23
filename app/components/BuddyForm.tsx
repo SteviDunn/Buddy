@@ -43,7 +43,7 @@ export default function BuddyForm({ eventTitle }: Props) {
       />
       <input
         required
-        placeholder="Email or Discord"
+        placeholder="Enter Email"
         value={contact}
         onChange={(e) => setContact(e.target.value)}
         className="w-full border p-2 rounded"
@@ -56,7 +56,7 @@ export default function BuddyForm({ eventTitle }: Props) {
         <option value="1-on-1">1-on-1</option>
         <option value="group">Group</option>
       </select>
-      <button className="bg-pink-500 text-white px-4 py-2 rounded hover:bg-pink-600">
+      <button className="bg-pink-400 text-white font-semibold text-base px-4 py-2 rounded shadow-sm hover:bg-pink-300 transition duration-200">
         Submit
       </button>
     </form>
