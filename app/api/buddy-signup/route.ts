@@ -47,12 +47,17 @@ export async function POST(req: Request) {
 
     const { error: updateError1 } = await supabase
       .from('buddy_signups')
-      .update({ is_matched: true, paired_with: buddy.id })
+      .update({ is_matched: true,
+                paired_with: buddy.id,
+                paired_with_contact: buddy.contact, })
       .eq('id', currentUser.id);
 
     const { error: updateError2 } = await supabase
       .from('buddy_signups')
-      .update({ is_matched: true, paired_with: currentUser.id })
+      .update({ 
+        is_matched: true, 
+        paired_with: currentUser.id,
+        paired_with_contact: currentUser.contact, })
       .eq('id', buddy.id);
 
     if (updateError1 || updateError2) {
