@@ -40,7 +40,8 @@ export async function POST(req: Request) {
     console.error('❌ Insert error:', insertError);
     return new Response(JSON.stringify({ success: false }), { status: 500 });
   }
-
+  
+  await new Promise(res => setTimeout(res, 200));
   const currentUser = newUser[0];
 
   // Step 2: Check for existing unmatched buddy
