@@ -91,14 +91,19 @@ export async function POST(req: Request) {
 
     try{
       await resend.emails.send({
-        from: 'Her Buddy <hello@aubri.site>',
+        from: 'Aubri <hello@aubri.site>',
         to: [currentUser.contact, buddy.contact],
         subject: `You're matched for ${eventTitle}!`,
         html:`
-          <p>Hi ${currentUser.name} and ${buddy.name}!</p>, 
-          <p> You've been matched for ${eventTitle}! </p>,
-          <p> Feel free to reply to this thread to introduce yourselves and coordinate!</p>
-          <p> Enjoy the event! <br> -Her Buddy Team  💜 </p>
+            <p>Hi ${currentUser.name} and ${buddy.name}!</p>
+            <p>You’ve been matched for <strong>${eventTitle}</strong> 🎉</p>
+            <p>Feel free to reply to this thread to introduce yourselves and coordinate before the event.</p>
+            <p>We hope it leads to a meaningful connection!</p>
+            <br>
+            <p style="font-style: italic; color: #B8860B; font-weight: 500;">
+              — Aubri<br>
+              <span style="font-size: 0.95em;">Connections worth more than gold ✨</span>
+            </p>
         `,
       });
 
