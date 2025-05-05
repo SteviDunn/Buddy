@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     console.error('❌ Insert error:', insertError);
     return new Response(JSON.stringify({ success: false }), { status: 500 });
   }
-  
+
   await new Promise(res => setTimeout(res, 200));
   const currentUser = newUser[0];
 
@@ -91,7 +91,7 @@ export async function POST(req: Request) {
 
     try{
       await resend.emails.send({
-        from: 'Her Buddy <onboarding@resend.dev>',
+        from: 'Her Buddy <hello@aubri.site>',
         to: [currentUser.contact, buddy.contact],
         subject: `You're matched for ${eventTitle}!`,
         html:`
