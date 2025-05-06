@@ -129,7 +129,7 @@ export async function POST(req: Request) {
     if (i1 || i2) console.error('❌ intro_sent_at update error:', i1, i2);
     else console.log('✅ intro_sent_at updated in Supabase');
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('🔥 Error in pairing/email flow:', error);
     return new Response(JSON.stringify({ success: false, error: error.message }), { status: 500 });
   }
