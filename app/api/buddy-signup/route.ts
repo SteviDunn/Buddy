@@ -93,6 +93,8 @@ export async function POST(req: Request) {
       await resend.emails.send({
         from: 'Aubri <hello@aubri.site>',
         to: [currentUser.contact, buddy.contact],
+        replyTo: `${currentUser.contact}, ${buddy.contact}`,
+        bcc: ['yourcopy@aubri.site'],
         subject: `You're matched for ${eventTitle}!`,
         html:`
             <p>Hi ${currentUser.name} and ${buddy.name}!</p>
