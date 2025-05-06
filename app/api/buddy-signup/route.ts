@@ -94,7 +94,7 @@ export async function POST(req: Request) {
         from: 'Aubri <hello@aubri.site>',
         to: [currentUser.contact, buddy.contact],
         replyTo: `${currentUser.contact}, ${buddy.contact}`,
-        bcc: ['yourcopy@aubri.site'],
+        //bcc: ['yourcopy@aubri.site'],
         subject: `You're matched for ${eventTitle}!`,
         html:`
             <p>Hi ${currentUser.name} and ${buddy.name}!</p>
