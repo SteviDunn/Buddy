@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState } from 'react'; 
 
 type Props = {
   eventTitle: string;
+  eventUrl: string;
 };
 
-export default function BuddyForm({ eventTitle }: Props) {
+export default function BuddyForm({ eventTitle, eventUrl }: Props) {
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [matchType, setMatchType] = useState('1-on-1');
