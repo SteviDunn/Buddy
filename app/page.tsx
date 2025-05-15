@@ -1,14 +1,19 @@
-// app/page.tsx  (or app/events/page.tsx)
+// app/page.tsx
 
-import EventGrid from "./components/EventGrid";
-import { fetchAllEvents, fetchFirstNEvents, LumaEvent } from "@/lib/luma";
+import { fetchAllEvents, LumaEvent } from "@/lib/luma";
+import { groupByDate }               from "@/lib/groupByDate";
+import EventTimeline                 from "./components/EventTimeline";
 
 export default async function Home() {
+  // 1) Fetch all events on the server
   const events: LumaEvent[] = await fetchAllEvents();
+
+  // 2) Group them by the day string
+  const grouped = groupByDate(events);
 
   return (
     <main className="relative z-10 p-6 max-w-6xl mx-auto">
-      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold text-white drop-shadow-lg">
           SF Tech Events
         </h1>
@@ -21,10 +26,9 @@ export default async function Home() {
       </div>
 
       {events.length === 0 ? (
-        <p className="text-white">Loading events...</p>
+        <p className="text-white">Loading events…</p>
       ) : (
-        // Pass the array to a Client Component
-        <EventGrid events={events} />
+        <EventTimeline groupedEvents={grouped} />
       )}
     </main>
   );

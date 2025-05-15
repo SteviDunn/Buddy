@@ -41,7 +41,8 @@ export default function EventCard({
             View on Luma
           </a>
           <button
-            className="bg-gold text-white font-semibold text-base px-4 py-2 rounded shadow-sm hover:bg-gold/90 transition duration-200"
+            className="bg-pink-500/70 hover:bg-pink-300/90 text-white font-semibold px-4 py-2 rounded transition duration-200"
+
             onClick={onToggle}
           >
             {isOpen ? "Hide Buddy Form" : "Find a Buddy"}
