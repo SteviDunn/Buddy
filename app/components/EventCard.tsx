@@ -17,9 +17,9 @@ export default function EventCard({ event }: EventCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex gap-6 items-stretch">
+    <div className="flex flex-col sm:flex-row gap-6 items-stretch">
       {/* ── Left panel: 16∶9 image + info ── */}
-      <div className="flex-1 max-w-lg bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
+      <div className="flex-1 max-w-lg w-full bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
         {/* Image container at 16∶9 */}
         <div className="w-full aspect-video bg-gray-100">
           {image ? (
@@ -64,7 +64,7 @@ export default function EventCard({ event }: EventCardProps) {
       </div>
 
       {/* ── Right panel: fixed square map ── */}
-      <div className="w-64 aspect-square bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
+      <div className="w-full sm:w-64 aspect-square bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
         {location ? (
           <SmallMap address={location} />
         ) : (
@@ -79,8 +79,8 @@ export default function EventCard({ event }: EventCardProps) {
 
       {/* ── BuddyForm Modal ── */}
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-96">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
             <h4 className="text-xl font-semibold mb-4">{title}</h4>
             <BuddyForm eventTitle={title} eventUrl={link} />
             <button
