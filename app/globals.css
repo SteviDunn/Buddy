@@ -22,7 +22,7 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background: linear-gradient(-45deg, #ffd1dc, #ffe4e6, #fbcfe8, #e0f2fe);
+  background: linear-gradient(-45deg, #ffd1dc, #fcd6d6, #fbcfe8, #e0f2fe);
   background-size: 400% 400%;
   animation: gradientMorph 15s ease infinite;
   font-family: var(--font-sans);
