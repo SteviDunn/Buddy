@@ -15,6 +15,8 @@ export default function EventCard({
   isOpen,
   onToggle,
 }: EventCardProps) {
+  console.log("Event payload:", event);
+
   return (
     <div className="bg-white/60 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden transition-shadow hover:shadow-xl">
       {event.image && (
