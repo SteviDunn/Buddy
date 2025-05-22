@@ -58,3 +58,21 @@ body {
 .animate-glitter {
   animation: glitterShine 12s infinite linear;
 }
+
+/* ✨ Shimmering gold text */
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.text-shimmer-gold {
+  background-image: linear-gradient(90deg, #fceabb, #fff8e1, #fceabb);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmerGold 3s linear infinite;
+}
