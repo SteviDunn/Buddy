@@ -65,6 +65,11 @@ export default function EventCard({ event }: EventCardProps) {
 
       {/* ── Right panel: fixed square map ── */}
       <div className="w-full sm:w-64 aspect-square bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
+        {/*
+          Show the map only when we have a location value. When the event
+          details hide the venue until registration, `location` will be empty
+          and we display a placeholder message instead.
+        */}
         {location ? (
           <SmallMap address={location} />
         ) : (
