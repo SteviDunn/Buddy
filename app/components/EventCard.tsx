@@ -17,7 +17,7 @@ export default function EventCard({ event }: EventCardProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-6 items-stretch">
+    <div className="flex flex-col sm:flex-row gap-6 items-stretch font-sans">
       {/* ── Left panel: 16∶9 image + info ── */}
       <div className="flex-1 max-w-lg w-full bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
         {/* Image container at 16∶9 */}
@@ -55,7 +55,7 @@ export default function EventCard({ event }: EventCardProps) {
             </a>
             <button
               onClick={() => setIsOpen(true)}
-              className="ml-auto bg-pink-500 hover:bg-pink-400 text-white px-3 py-1 rounded"
+              className="ml-auto bg-pink-500 hover:bg-pink-400 text-shimmer-gold px-3 py-1 rounded"
             >
               Find Buddy
             </button>
@@ -74,7 +74,7 @@ export default function EventCard({ event }: EventCardProps) {
       {/* ── BuddyForm Modal ── */}
       {isOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-md font-sans">
             <h4 className="text-xl font-semibold mb-4">{title}</h4>
             <BuddyForm eventTitle={title} eventUrl={link} />
             <button

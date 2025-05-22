@@ -33,8 +33,8 @@ export default function BuddyForm({ eventTitle, eventUrl }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white/80 p-4 rounded shadow backdrop-blur">
-      <h3 className="font-semibold">Find a Buddy for: {eventTitle}</h3>
+    <form onSubmit={handleSubmit} className="space-y-4 bg-white/80 p-4 rounded shadow backdrop-blur font-sans">
+      <h3 className="font-semibold font-sans">Find a Buddy for: {eventTitle}</h3>
       <input
         required
         placeholder="Your name"
@@ -57,7 +57,7 @@ export default function BuddyForm({ eventTitle, eventUrl }: Props) {
         <option value="1-on-1">1-on-1</option>
         
       </select>
-      <button className="bg-pink-600/70 hover:bg-pink-300/90 text-white font-semibold px-4 py-2 rounded transition duration-200">
+      <button className="bg-pink-600/70 hover:bg-pink-300/90 text-shimmer-gold font-semibold px-4 py-2 rounded transition duration-200">
         Submit
       </button>
     </form>
