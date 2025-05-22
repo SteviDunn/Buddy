@@ -17,6 +17,7 @@ export default function EventTimeline({ groupedEvents }: Props) {
               sticky top-0
               z-10
               py-2
+              ml-36
             "
           >
             <h2 className="text-4xl font-bold text-white drop-shadow-lg">
