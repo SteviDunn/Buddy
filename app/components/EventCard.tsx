@@ -55,7 +55,7 @@ export default function EventCard({ event }: EventCardProps) {
             </a>
             <button
               onClick={() => setIsOpen(true)}
-              className="ml-auto bg-pink-500 hover:bg-pink-400 text-shimmer-gold px-3 py-1 rounded"
+              className="ml-auto bg-fuchsia-900 hover:bg-fuchsia-800 border border-fuchsia-950 text-shimmer-gold px-3 py-1 rounded-lg"
             >
               Find Buddy
             </button>

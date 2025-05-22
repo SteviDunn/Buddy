@@ -57,7 +57,7 @@ export default function BuddyForm({ eventTitle, eventUrl }: Props) {
         <option value="1-on-1">1-on-1</option>
         
       </select>
-      <button className="bg-pink-600/70 hover:bg-pink-300/90 text-shimmer-gold font-semibold px-4 py-2 rounded transition duration-200">
+      <button className="bg-fuchsia-900 hover:bg-fuchsia-800 border border-fuchsia-950 text-shimmer-gold font-semibold px-4 py-2 rounded-lg transition duration-200">
         Submit
       </button>
     </form>
