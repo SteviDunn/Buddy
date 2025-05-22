@@ -64,23 +64,12 @@ export default function EventCard({ event }: EventCardProps) {
       </div>
 
       {/* ── Right panel: fixed square map ── */}
-      <div className="w-full sm:w-64 aspect-square bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
-        {/*
-          Show the map only when we have a location value. When the event
-          details hide the venue until registration, `location` will be empty
-          and we display a placeholder message instead.
-        */}
-        {location ? (
+      {location && (
+        <div className="w-full sm:w-64 aspect-square bg-white/70 backdrop-blur-lg border border-white/30 rounded-lg shadow-md overflow-hidden flex flex-col">
           <SmallMap address={location} />
-        ) : (
-          <div className="flex-1 bg-gray-100 flex items-center justify-center text-xs text-gray-500 p-2">
-            Address upon registration
-          </div>
-        )}
-        {location && (
           <p className="p-2 text-xs text-gray-700 text-center">{location}</p>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* ── BuddyForm Modal ── */}
       {isOpen && (
