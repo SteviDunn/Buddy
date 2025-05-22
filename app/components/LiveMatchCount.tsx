@@ -29,8 +29,8 @@ export default function LiveMatchCount() {
 
   return (
     <div className="my-8 flex justify-center">
-      <div className="relative w-32 h-32 rounded-full border-8 border-pink-500 bg-white/80 backdrop-blur-md flex items-center justify-center shadow-lg">
-        <span className="text-4xl font-bold text-pink-600">{count}</span>
+      <div className="relative w-32 h-32 rounded-full border-8 border-yellow-500 bg-white/80 backdrop-blur-md flex items-center justify-center shadow-lg">
+        <span className="text-4xl font-bold text-shimmer-gold">{count}</span>
       </div>
     </div>
   );

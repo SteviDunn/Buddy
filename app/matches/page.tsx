@@ -1,22 +1,17 @@
 
 'use client';
 
-import Image from 'next/image';
 import LiveMatchCount from '../components/LiveMatchCount';
 
 export default function MatchesPage() {
 
   return (
     <main className="p-6 max-w-xl mx-auto text-center">
-      <Image
-        src="/images/aubri_logo_transparent.svg"
-        alt="Aubri logo"
-        width={120}
-        height={120}
-        className="mx-auto mb-4"
-      />
+      <h1 className="text-5xl font-bold mb-4 drop-shadow-lg text-shimmer-gold">
+        Aubri
+      </h1>
 
-      <h1 className="text-2xl font-bold mb-4 text-white drop-shadow-lg">Matches Made</h1>
+      <h2 className="text-2xl font-bold mb-4 text-white drop-shadow-lg">Matches Made</h2>
 
       <LiveMatchCount />
 
