@@ -15,7 +15,7 @@ export default function HomePage() {
           href="/gals"
           className="text-2xl font-bold text-white underline drop-shadow-lg"
         >
-          SF Gals Activity Pairing
+          SF Gals Activity Pairing (coming soon...)
         </a>
       </div>
     </main>
