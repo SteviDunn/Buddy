@@ -55,10 +55,12 @@ export default function EventCard({ event }: EventCardProps) {
             </a>
             <button
               onClick={() => setIsOpen(true)}
-              className="ml-auto bg-fuchsia-900 hover:bg-fuchsia-800 border border-fuchsia-950 text-shimmer-gold px-3 py-1 rounded-lg"
+              className="ml-auto relative z-10 bg-fuchsia-600 bg-opacity-100 hover:bg-fuchsia-950 text-shimmer-gold px-3 py-1 rounded-lg border border-fuchsia-800 shadow-md"
             >
-              Find Buddy
+            <span className="text-shimmer-gold">
+              Find Buddy </span>
             </button>
+
           </div>
         </div>
       </div>
